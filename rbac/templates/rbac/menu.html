@@ -1,12 +1,43 @@
-<div class="multi-menu">
-    <div class="item">
-        {% for item in menu_dict.values %}
-            <div class="title"><span class="icon-wrap"><i class="fa {{ item.icon }}"></i></span>  {{ item.title }}</div>
-            <div class="body {{ item.class }}">
+{#<div class="multi-menu">#}
+{#    <div class="item">#}
+{#        {% for item in menu_dict.values %}#}
+{#            <div class="title"><span class="icon-wrap"><i class="fa {{ item.icon }}"></i></span>  {{ item.title }}</div>#}
+{#            <div class="body {{ item.class }}">#}
+{#                {% for per in item.children %}#}
+{#                    <a href="{{ per.url }}" class="{{ per.class }}">{{ per.title }}</a>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        {% endfor %}#}
+{#    </div>#}
+{#</div>#}
+
+<div>
+    {% for item in menu_dict.values %}
+        <li class="sidebar-nav-link">
+            <a href="javascript:;" class="sidebar-nav-sub-title">
+                <i class="fa {{ item.icon }}"></i> {{ item.title }}
+                <span class="am-icon-chevron-down am-fr am-margin-right-sm sidebar-nav-sub-ico"></span>
+            </a>
+
+
+            <ul class="sidebar-nav sidebar-nav-sub">
+
                 {% for per in item.children %}
-                    <a href="{{ per.url }}" class="{{ per.class }}">{{ per.title }}</a>
+                    <li class="sidebar-nav-link">
+                        <a href="{{ per.url }}">
+                            <span class="{{ per.class }}"></span> {{ per.title }}
+                        </a>
+                    </li>
+
                 {% endfor %}
-            </div>
-        {% endfor %}
-    </div>
+
+{#                <li class="sidebar-nav-link">#}
+{#                    <a href="table-list-img.html">#}
+{#                        <span class="am-icon-angle-right sidebar-nav-link-logo"></span> 图文列表#}
+{#                    </a>#}
+{#                </li>#}
+            </ul>
+        </li>
+    {% endfor %}
+
 </div>
